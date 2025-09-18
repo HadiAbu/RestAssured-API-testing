@@ -5,16 +5,13 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.*;
-
 public class ApiTests {
 
     @Test
     public void testGetPost() {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
 
-        Response response = 
-            given()
+        Response response = RestAssured.given()
                 .when().get("/posts/1")
                 .then().extract().response();
 

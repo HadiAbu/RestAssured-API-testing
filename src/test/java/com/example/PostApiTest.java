@@ -1,14 +1,14 @@
 package com.example;
 
+import io.restassured.RestAssured;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class PostApiTest {
 
     @Test
     public void testCreatePost() {
-        given()
+        RestAssured.given()
             .baseUri("https://jsonplaceholder.typicode.com")
             .header("Content-Type", "application/json")
             .body("{ \"title\": \"Automation Test\", \"body\": \"RestAssured Rocks!\", \"userId\": 1 }")
